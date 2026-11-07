@@ -22,6 +22,60 @@
 		max-width: 70px;
 		height: auto
     }
+
+    	@media (max-width: 600px) {
+		.ri-table {
+			width: 100%;
+			border: 0;
+			border-collapse: separate;
+			border-spacing: 0 8px;
+			text-align: left;
+		}
+
+		thead { display: none; }
+
+		tbody > tr {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) 76px;
+			grid-template-rows: repeat(5, auto);
+			column-gap: 8px;
+			padding: 8px;
+			border: 1px solid #888;
+			border-radius: 6px;
+			margin-bottom: 2px;
+		}
+
+		tbody > tr > td,
+		tbody > tr > th {
+			min-width: 0;
+			padding: 3px 0;
+			border: 0;
+			text-align: left;
+			overflow-wrap: anywhere;
+		}
+
+		/* Date across the top; competition details stay in the left column. */
+		tbody > tr > :nth-child(1) { grid-column: 1 / -1; grid-row: 1; }
+		tbody > tr > :nth-child(2) { grid-column: 1; grid-row: 2; }
+		tbody > tr > :nth-child(1),
+		tbody > tr > :nth-child(2) { font-size: 1.2em; }
+		tbody > tr > :nth-child(3) { grid-column: 1; grid-row: 3; }
+		tbody > tr > :nth-child(4) { grid-column: 1; grid-row: 4; }
+		tbody > tr > :nth-child(5) {
+			grid-column: 2;
+			grid-row: 2 / span 3;
+			align-self: center;
+			text-align: center;
+		}
+		tbody > tr > :nth-child(6) {
+			grid-column: 2;
+			grid-row: 5;
+			align-self: center;
+			text-align: center;
+		}
+
+		td a .ri-img { max-width: 64px;}
+	}
 </style>
 
 <ul id="ri-ul">
